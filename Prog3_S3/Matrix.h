@@ -27,6 +27,8 @@ public:
 
 	std::vector<double> operator[](int index);
 
+	friend std::ostream operator<<(std::ostream o, const Matrix& m);
+	friend std::istream operator>>(std::istream o, const Matrix& m);
 	friend Matrix& operator+(const Matrix& a, const Matrix& b);
 	friend Matrix& operator-(const Matrix& a, const Matrix& b);
 	friend Matrix& operator+(const Matrix& a, double b);
@@ -35,6 +37,8 @@ public:
 	friend Matrix& operator-(double a, const Matrix& b);
 };
 
+std::ostream operator<<(std::ostream o, const Matrix& m);
+std::istream operator>>(std::istream o, const Matrix& m);
 Matrix& operator+(const Matrix& a, const Matrix& b);
 Matrix& operator-(const Matrix& a, const Matrix& b);
 Matrix& operator+(const Matrix& a, double b);
