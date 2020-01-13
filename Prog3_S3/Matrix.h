@@ -12,13 +12,11 @@
 #include <iostream>
 
 class Matrix {
-
 private:
 	std::vector<std::vector<double>> werte;
 	void resize(unsigned int sizeX, unsigned int sizeY, double init = 0.0);
 public:
 	explicit Matrix(unsigned int sizeX = 4, unsigned int sizeY = 4, double init = 0.0);
-	virtual ~Matrix() = default;
 
 	Matrix operator-();
 	Matrix& operator+=(const Matrix& b);

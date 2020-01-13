@@ -7,19 +7,16 @@
 #include <vector>
 #include "Matrix.h"
 
-Matrix::Matrix(unsigned int sizeX,unsigned int sizeY, double init) {
-	this->werte = std::vector<std::vector<double>>();
+Matrix::Matrix(unsigned int sizeX,unsigned int sizeY, double init){
 	this->resize(sizeX, sizeY, init);
 }
 
 void Matrix::resize(unsigned int sizeX, unsigned int sizeY, double init){
-	if(this->werte.size()){
 		this->werte.resize(sizeX);
 
-		for(auto list : this->werte){
-			list.resize(sizeY, init);
+		for(unsigned i=0; i < this->werte.size(); ++i){
+			this->werte[i].resize(sizeY, init);
 		}
-	}
 }
 
 Matrix Matrix::operator-(){
@@ -38,7 +35,7 @@ Matrix& Matrix::operator+=(const Matrix& b){
 }
 
 Matrix& Matrix::operator-=(const Matrix& b){
-	*this = *this+b;
+	*this = *this-b;
 	return *this;
 }
 
@@ -101,7 +98,7 @@ Matrix operator-(const Matrix& a, const Matrix& b){
 			}
 			return c;
 		}else{
-			return (b + a);
+			return (b - a);
 		}
 }
 
