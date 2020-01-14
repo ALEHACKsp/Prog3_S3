@@ -83,6 +83,13 @@ Matrix operator+(const Matrix& a, const Matrix& b){
 		}
 		return c;
 	}else{
+		if(!(b.werte.size() > a.werte.size() && b.werte[0].size() > a.werte[0].size())){
+			Matrix c = b;
+			c.resize(b.werte.size()>a.werte.size()? b.werte.size() : a.werte.size(),
+					b.werte[0].size()>a.werte[0].size()? b.werte[0].size() : a.werte[0].size(),
+					0);
+			return (c + a);
+		}
 		return (b + a);
 	}
 }
